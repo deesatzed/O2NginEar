@@ -1,0 +1,47 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app  # Mounts the backend code for hot-reloading
+    environment:
+      # It's recommended to use a .env file for these in a real scenario
+      # For this subtask, providing placeholder examples directly.
+      # These will be overridden by an .env file if present in the project root.
+      - GOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID_DOCKER_COMPOSE
+      - GOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET_DOCKER_COMPOSE
+      - GOOGLE_REDIRECT_URI=http://localhost:8000/api/auth/callback/google
+      # For logging level, if you want to control it via env:
+      # - LOG_LEVEL=INFO
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./my-drive-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./my-drive-app:/app # Mounts the frontend code
+      - /app/node_modules # Exclude node_modules from being overwritten by the host volume
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Often helps with hot-reloading in Docker on some systems
+      - WDS_SOCKET_PORT=0 # For Webpack Dev Server compatibility in some Docker setups
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    stdin_open: true # For react-scripts
+    tty: true      # For react-scripts
+
+
+networks:
+  app-network:
+    driver: bridge
