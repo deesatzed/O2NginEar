@@ -1,0 +1,8 @@
+# backend/.flake8
+[flake8]
+ignore = E203, E501, W503
+# E203: whitespace before ':' (often conflicts with Black)
+# E501: line too long (Black handles this)
+# W503: line break before binary operator (Black prefers this, Flake8 default is after)
+max-line-length = 88
+exclude = .git,__pycache__,docs,venv,env,build,dist,*.egg-info

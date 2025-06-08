@@ -16,13 +16,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "check-format": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:prettier/recommended" // Added Prettier recommendations
+    ],
+    "rules": {
+      // "prettier/prettier": "warn", // Example: can be enabled to show Prettier issues as warnings
+      "no-unused-vars": "warn" // Keeping existing example rule
+    }
   },
   "browserslist": {
     "production": [
@@ -38,7 +47,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
     "postcss": "^8.5.4",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4.1.8"
   },
   "proxy": "http://localhost:8000"

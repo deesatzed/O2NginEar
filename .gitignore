@@ -1,0 +1,100 @@
+# Environment variables
+.env
+.env.*
+*.env
+
+# Docker
+**/docker-debug.log
+**/docker-debug.*.log
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg
+*.egg-info/
+.pytest_cache/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+.pytest_cache/
+celerybeat-schedule
+celerybeat.pid
+*.mo
+*.pot
+*.po
+venv/
+env/
+ENV/
+# Flask specific
+instance/
+.webassets-cache
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Node specific (general, and for my-drive-app)
+node_modules/
+my-drive-app/node_modules/
+my-drive-app/build/
+my-drive-app/.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+coverage
+.nyc_output
+dist
+build
+.pnp.*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Misc
+*.bak
+*.tmp
+*.temp
+*~
+# If you're using Jupyter notebooks
+.ipynb_checkpoints

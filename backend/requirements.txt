@@ -2,3 +2,5 @@ fastapi
 uvicorn[standard]
 google-api-python-client
 google-auth-oauthlib
+black
+flake8
